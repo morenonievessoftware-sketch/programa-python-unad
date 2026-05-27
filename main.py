@@ -29,13 +29,12 @@ def calcular_precio_final(producto, categoria_descuento, umbral):
         return round(precio_base * 0.85, 2)
     return precio_base
 
-print(f"{'Producto':<25} {'Categoría':<10} {'Precio Base':>12} {'Precio Final':>13}")
-print("-" * 63)
+print(f"{'Producto':<25} {'Categoría':<10} {'Precio Base':>12} {'Precio Final':>13} {'% Descuento':>10}")
+print("-" * 80)
 
 for producto in menu:
     nombre, categoria, precio_base = producto
     precio_final = calcular_precio_final(producto, categoria_descuento, umbral_precio)
-    descuento    = "15%" 
-    if precio_final < precio_base:
-        ""
-    print(f"{nombre:<25} {categoria:<10} ${precio_base:>10,} ${precio_final:>11,.2f}  {descuento}")
+    #operador ternario para mostrar el descuento aplicado
+    descuento = "" if precio_final == precio_base else "15%"
+    print(f"{nombre:<25} {categoria:<10} ${precio_base:>10,} ${precio_final:>11,.2f}  {descuento:>8}")
